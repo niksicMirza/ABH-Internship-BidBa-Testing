@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Tests">
+    <test verbose="2" name="Regression Tests">
+        <classes>
+            <class name="test.TestPlan">
+                <methods>
+                    <include name="URLCheck"/>
+                    <include name="registerForm"/>
+                    <include name="loginForm"/>
+                    <include name="logoCheck"/>
+                    <include name="lowerBidProcess"/>
+                    <include name="logout"/>
+                    <include name="registerFormNegative"/>
+                    <include name="loginFormNegative"/>
+                    <include name="socialMediaButtons"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
