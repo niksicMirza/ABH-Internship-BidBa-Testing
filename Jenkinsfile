@@ -40,7 +40,6 @@ pipeline {
         stage("Zip Report File S"){
           steps{
             script{
-                del 'smokeTest.zip'
             zip zipFile: 'smokeTest.zip', archive: false, dir: 'target/allure'
               }
           }
@@ -71,7 +70,6 @@ pipeline {
       stage("Zip Report File"){
           steps{
         script{
-             del 'regressionTest.zip'
         zip zipFile: 'regressionTest.zip', archive: false, dir: 'target/allure'
           }
       }
