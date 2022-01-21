@@ -19,7 +19,7 @@ pipeline {
         steps
         {
           echo "Test"
-          bat 'mvn clean test -DsuiteXmlFile="smoke.xml"'
+          bat 'mvn test -DsuiteXmlFile="smoke.xml"'
         }
       }
       stage('Report Smoke') {
@@ -37,10 +37,9 @@ pipeline {
           }
           }
         }
-        stage("Zip Report File"){
+        stage("Zip Report File S"){
           steps{
             script{
-                bat "del smokeTest.zip"
             zip zipFile: 'smokeTest.zip', archive: false, dir: 'target/allure'
               }
           }
@@ -50,7 +49,7 @@ pipeline {
             steps
             {
               echo "Test"
-              bat 'mvn clean test -DsuiteXmlFile="regression.xml"'
+              bat 'mvn  test -DsuiteXmlFile="regression.xml"'
             }
           }
       stage('Report Regression') {
@@ -71,7 +70,6 @@ pipeline {
       stage("Zip Report File"){
           steps{
         script{
-            bat "del regressionTest.zip"
         zip zipFile: 'regressionTest.zip', archive: false, dir: 'target/allure'
           }
       }

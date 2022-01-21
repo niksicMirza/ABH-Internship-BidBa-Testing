@@ -6,14 +6,6 @@
             <class name="test.TestPlan">
                 <methods>
                     <include name="URLCheck"/>
-                    <include name="registerForm"/>
-                    <include name="loginForm"/>
-                    <include name="logoCheck"/>
-                    <include name="lowerBidProcess"/>
-                    <include name="logout"/>
-                    <include name="registerFormNegative"/>
-                    <include name="loginFormNegative"/>
-                    <include name="socialMediaButtons"/>
                 </methods>
             </class>
         </classes>
