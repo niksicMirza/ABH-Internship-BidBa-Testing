@@ -27,7 +27,7 @@ I have used following technologies in this project:
 - Click Run or Debug
 - Open cmd and run allure serve *location_of_allure-results*
 
-#Run the Test from Command Line
+# Run the Test from Command Line
 
 -Navigate to the project folder
 -Enter "mvn test -DsuiteXmlFile="smoke.xml"" if you want to run smoke test
