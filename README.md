@@ -1,4 +1,4 @@
-# bidba_testing
+# bidba_smoke_and_regression
 In this project I have automated a smoke and regression tests for https://bidba.herokuapp.com/. While automating smoke and regression tests, I have used Page Object Model for easier understanding of code.    
 
 # Techonologies 
