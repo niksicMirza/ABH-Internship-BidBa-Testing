@@ -19,6 +19,7 @@ public class RegisterPage extends PageObject{
   public final String EMAIL_ADDRESS = generateCredentials.emailAddressGenerator();
   public final String PASSWORD = "123456";
 
+
   @FindBy(xpath = "//body[1]/div[1]/div[1]/div[4]/form[1]/div[1]/div[1]/input[1]")
   public WebElement first_name;
 

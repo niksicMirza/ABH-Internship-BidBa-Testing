@@ -82,7 +82,7 @@ public class TestPlan {
     loginPage.enterPassword();
     assertFalse(loginPage.password.getAttribute("value").isEmpty());
     loginPage.clickLoginButton();
-    Thread.sleep(1000);
+    Thread.sleep(2000);
 
     assertEquals(Utils.HOME_PAGE_TITLE, driver.getTitle()); //check the title
     assertEquals(Utils.HOME_PAGE_URL, driver.getCurrentUrl()); //check the URL
