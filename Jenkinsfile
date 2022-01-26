@@ -32,7 +32,7 @@ pipeline {
             reportBuildPolicy:
             'ALWAYS',
                     results: [[path:
-            'allure-results']]
+            'target/allure/allure-results']]
               ])
           }
           }
@@ -40,7 +40,7 @@ pipeline {
         stage("Zip Report File Smoke"){
           steps{
             script{
-            zip zipFile: 'smokeTest.zip', archive: false, dir: 'allure-results'
+            zip zipFile: 'smokeTest.zip', archive: false, dir: 'target/allure'
               }
           }
         }
@@ -62,7 +62,7 @@ pipeline {
           reportBuildPolicy:
           'ALWAYS',
                   results: [[path:
-          'allure-results']]
+          'target/allure/allure-results']]
             ])
         }
         }
@@ -70,7 +70,7 @@ pipeline {
       stage("Zip Report File Regression"){
           steps{
         script{
-        zip zipFile: 'regressionTest.zip', archive: false, dir: 'allure-results'
+        zip zipFile: 'regressionTest.zip', archive: false, dir: 'target/allure'
           }
       }
     }
