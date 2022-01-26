@@ -42,6 +42,8 @@ pipeline {
             script{
             zip zipFile: 'smokeTest.zip', archive: false, dir: 'target/allure'
               }
+              dir ('target/allure'){
+                deleteDir()}
           }
         }
         stage('Regression Test')
