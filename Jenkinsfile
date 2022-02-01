@@ -11,7 +11,7 @@ pipeline {
         steps
         {
           deleteDir()
-          git url:'https://github.com/niksicMirza/bidba_smoke_and_regression.git'
+          git url:'https://github.com/niksicMirza/ABH-Internship-BidBa-Testing.git'
         }
       }
       stage('Smoke Test')
