@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends PageObject{
 
-  public final String EMAIL_ADDRESS = "tttttt2@gmail.com";
+  public final String EMAIL_ADDRESS = "smokeTest@gmail.com";
   public final String PASSWORD = "123123";
 
   @FindBy(xpath = "//body[1]/div[1]/div[1]/div[4]")

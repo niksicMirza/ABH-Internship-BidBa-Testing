@@ -25,7 +25,7 @@ public class TestPlan {
     // ChromeDriver location set up in Utils class
     System.setProperty("webdriver.chrome.driver", Utils.CHROME_DRIVER_LOCATION);
     options = new ChromeOptions();
-    options.setHeadless(true);
+    //options.setHeadless(true);
     driver = new ChromeDriver(options);
   }
 
@@ -44,7 +44,7 @@ public class TestPlan {
     assertEquals(Utils.HOME_PAGE_URL, driver.getCurrentUrl()); //check the URL
     assertTrue(homePage.logo.isDisplayed()); //check if logo is displayed
     assertTrue(homePage.footer.isDisplayed()); //check if footer is displayed
-    //assertTrue(homePage.product_title.isDisplayed()); //check if product title is displayed
+    assertTrue(homePage.product_title.isDisplayed()); //check if product title is displayed
     assertTrue(homePage.product_image.isDisplayed()); //check if product image is displayed
     assertTrue(homePage.facebook_button.isDisplayed()); //check if facebook button is displayed
     assertTrue(homePage.instagram_button.isDisplayed()); //check if instagram button is displayed
@@ -52,7 +52,7 @@ public class TestPlan {
     assertTrue(homePage.skype_button.isDisplayed()); //check if skype button is displayed
     assertTrue(homePage.log_in_button.isDisplayed()); //check if log in is displayed
     assertTrue(homePage.create_an_account_button.isDisplayed()); //check if register button is displayed
-
+/*
     homePage.openRegisterPage();
     assertEquals(Utils.REGISTER_PAGE_TITLE, driver.getTitle()); //check the title
     assertEquals(Utils.REGISTER_PAGE_URL, driver.getCurrentUrl()); //check the URL
@@ -68,9 +68,9 @@ public class TestPlan {
     assertFalse(registerPage.email_address.getAttribute("value").isEmpty());
     registerPage.enterPassword();
     assertFalse(registerPage.password.getAttribute("value").isEmpty());
-    Thread.sleep(1000);
     registerPage.clickRegisterButton();
-    Thread.sleep(1000);
+    Thread.sleep(1000);*/
+    homePage.logIn();
 
     assertEquals(Utils.LOGIN_PAGE_TITLE, driver.getTitle()); //check the title
     assertEquals(Utils.LOGIN_PAGE_URL, driver.getCurrentUrl()); //check the URL
@@ -82,7 +82,7 @@ public class TestPlan {
     loginPage.enterPassword();
     assertFalse(loginPage.password.getAttribute("value").isEmpty());
     loginPage.clickLoginButton();
-    Thread.sleep(2000);
+    Thread.sleep(1000);
 
     assertEquals(Utils.HOME_PAGE_TITLE, driver.getTitle()); //check the title
     assertEquals(Utils.HOME_PAGE_URL, driver.getCurrentUrl()); //check the URL
@@ -102,7 +102,7 @@ public class TestPlan {
     String inputValue1 = "$ " + input;
     auctionPage.placeBid();
     Thread.sleep(3000);
-    Assert.assertEquals(driver.getCurrentUrl(), "https://bidba.herokuapp.com/my_account/bids");
+    Assert.assertEquals(driver.getCurrentUrl(), Utils.ACCOUNT_BIDS_PAGE_URL);
     String price = auctionPage.span2.getText();
     assertEquals(inputValue1, price);
 
@@ -120,7 +120,19 @@ public class TestPlan {
     assertTrue(shopPage.product_image.isDisplayed()); //check if product image is displayed
     assertTrue(shopPage.product_title.isDisplayed()); //check if product title is displayed
     assertTrue(shopPage.product_price.isDisplayed()); //check if product price is displayed
+    assertTrue(shopPage.sorting_dropdown.isDisplayed()); //check if sorting dropdown is displayed
     assertTrue(shopPage.categories.isDisplayed()); //check if categories box is displayed
+    assertTrue(shopPage.grid_view_button.isDisplayed()); //check if grid view button is displayed
+    assertTrue(shopPage.list_view_button.isDisplayed()); //check if list view button is displayed
+
+    shopPage.listView();
+    assertTrue(shopPage.bid_button.isDisplayed()); //check if bid button is displayed
+    assertTrue(shopPage.watchlist_button.isDisplayed()); //check if watchlist button is displayed
+    assertTrue(shopPage.product_description.isDisplayed()); //check if product description is displayed
+    shopPage.gridView();
+    Thread.sleep(1000);
+
+    //check if image is clickable and if it opens auction page
     shopPage.openProductAuction();
     Thread.sleep(2000);
     homePage.logOut();
@@ -305,6 +317,21 @@ public class TestPlan {
     assertEquals(Utils.SKYPE_URL, driver.getCurrentUrl());
     driver.close();
     driver.switchTo().window(browserTabs.get(0));
+  }
+
+  @Test(testName = "Search Bar")
+  public void search(){
+      driver.get(Utils.HOME_PAGE_URL);
+      driver.manage().window().maximize();
+
+      HomePage homePage = new HomePage(driver);
+      ShopPage shopPage =  new ShopPage(driver);
+
+      String searchText = "Mona Lisa";
+      homePage.searchBar(searchText);
+      assertTrue(shopPage.product_image.isDisplayed());
+      assertTrue(shopPage.product_price.isDisplayed());
+      assertEquals(shopPage.product_title.getText(), searchText);
   }
 
   @AfterTest

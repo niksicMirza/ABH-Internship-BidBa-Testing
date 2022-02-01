@@ -12,6 +12,8 @@
                     <include name="logout"/>
                     <include name="registerFormNegative"/>
                     <include name="loginFormNegative"/>
+                    <include name="search"/>
+                    <include name="lowerBidProcess"/>
                     <include name="socialMediaButtons"/>
                 </methods>
             </class>

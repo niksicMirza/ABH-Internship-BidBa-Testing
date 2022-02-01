@@ -1,5 +1,6 @@
 package POM;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -54,6 +55,9 @@ public class HomePage extends PageObject{
   @FindBy(xpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/button[1]/a[1]")
   public WebElement my_account_button;
 
+  @FindBy(xpath = "//body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/input[1]")
+  public WebElement search_bar;
+
   public HomePage(WebDriver driver) {
     super(driver);
   }
@@ -100,6 +104,11 @@ public class HomePage extends PageObject{
 
   public void openSkypePage(){
     this.skype_button.click();
+  }
+
+  public void searchBar(String text){
+    this.search_bar.sendKeys(text);
+    this.search_bar.sendKeys(Keys.ENTER);
   }
 
 }

@@ -8,6 +8,7 @@ public class Utils {
   public final static String LOGIN_PAGE_URL = "https://bidba.herokuapp.com/login";
   public final static String REGISTER_PAGE_URL = "https://bidba.herokuapp.com/register";
   public final static String SHOP_PAGE_URL = "https://bidba.herokuapp.com/shop/all";
+  public final static String ACCOUNT_BIDS_PAGE_URL = "https://bidba.herokuapp.com/my_account/bids";
 
   //PAGE TITLES
   public final static String HOME_PAGE_TITLE = "Auction App";
