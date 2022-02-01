@@ -25,7 +25,7 @@ public class TestPlan {
     // ChromeDriver location set up in Utils class
     System.setProperty("webdriver.chrome.driver", Utils.CHROME_DRIVER_LOCATION);
     options = new ChromeOptions();
-    //options.setHeadless(true);
+    options.setHeadless(true);
     driver = new ChromeDriver(options);
   }
 
