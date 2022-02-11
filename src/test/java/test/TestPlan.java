@@ -44,7 +44,6 @@ public class TestPlan {
     assertEquals(Utils.HOME_PAGE_URL, driver.getCurrentUrl()); //check the URL
     assertTrue(homePage.logo.isDisplayed()); //check if logo is displayed
     assertTrue(homePage.footer.isDisplayed()); //check if footer is displayed
-    assertTrue(homePage.product_title.isDisplayed()); //check if product title is displayed
     assertTrue(homePage.product_image.isDisplayed()); //check if product image is displayed
     assertTrue(homePage.facebook_button.isDisplayed()); //check if facebook button is displayed
     assertTrue(homePage.instagram_button.isDisplayed()); //check if instagram button is displayed
@@ -52,7 +51,7 @@ public class TestPlan {
     assertTrue(homePage.skype_button.isDisplayed()); //check if skype button is displayed
     assertTrue(homePage.log_in_button.isDisplayed()); //check if log in is displayed
     assertTrue(homePage.create_an_account_button.isDisplayed()); //check if register button is displayed
-/*
+
     homePage.openRegisterPage();
     assertEquals(Utils.REGISTER_PAGE_TITLE, driver.getTitle()); //check the title
     assertEquals(Utils.REGISTER_PAGE_URL, driver.getCurrentUrl()); //check the URL
@@ -69,7 +68,7 @@ public class TestPlan {
     registerPage.enterPassword();
     assertFalse(registerPage.password.getAttribute("value").isEmpty());
     registerPage.clickRegisterButton();
-    Thread.sleep(1000);*/
+    Thread.sleep(1000);
     homePage.logIn();
 
     assertEquals(Utils.LOGIN_PAGE_TITLE, driver.getTitle()); //check the title
